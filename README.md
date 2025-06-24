@@ -1,4 +1,14 @@
-## Hi there 👋
+![Banner Image] 
+
+## Hey there! I'm Nick, a Full-Stack Developer and UC Irvine CS student.
+
+I have a passion for both computer science and design, and am interested in areas where these passions intersect, such as front-end web/app development and UI/UX design! Look through my pinned repositories to see a bit of what I have accomplished so far~!
+
+#### Find me on [LinkedIn][linkedin], view my [resume][resume], or send me an [email][email].
+[linkedin]: https://www.linkedin.com/in/nick-riazi-b565662b9/
+[email]: mailto:ncriazu@uci.edu
+[resume]:
+
 
 <!--
 **ncriazi/ncriazi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
