@@ -2,7 +2,7 @@
 
 ## Hey there! I'm Nick, a Full-Stack Developer and UC Irvine CS student.
 
-Unfortunaly, the projects I have worked on recently cannot be posted on my repo I apologize! I have a passion for both computer science and design, and am interested in areas where these passions intersect, such as front-end web/app development and UI/UX design! Look through my pinned repositories to see a bit of what I have accomplished so far~! 
+I have a passion for both computer science and design, and am interested in areas where these passions intersect, such as front-end web/app development and UI/UX design! Look through my pinned repositories to see a bit of what I have accomplished so far~!
 
 #### Find me on [LinkedIn][linkedin] or send me an [email][email].
 [linkedin]: https://www.linkedin.com/in/nick-riazi-b565662b9/
