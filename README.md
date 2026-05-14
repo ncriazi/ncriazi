@@ -1,6 +1,6 @@
 
 
-## Hey there! I'm Nick, a Full-Stack Developer and UC Irvine CS student.
+## Hey there! I'm Nick, CS student at UC Irvine focused on embedded systems and firmware
 
 I have a passion for both computer science and design, and am interested in areas where these passions intersect, such as front-end web/app development and UI/UX design! Look through my pinned repositories to see a bit of what I have accomplished so far~!
 
