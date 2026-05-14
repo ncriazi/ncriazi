@@ -2,7 +2,7 @@
 
 ## Hey there! I'm Nick, CS student at UC Irvine focused on embedded systems and firmware
 
-I have a passion for both computer science and design, and am interested in areas where these passions intersect, such as front-end web/app development and UI/UX design! Look through my pinned repositories to see a bit of what I have accomplished so far~!
+I have a passion for both computer science and design, and am interested in areas such as firmware and embedded systems! Look through my pinned repositories to see a bit of what I have accomplished so far~!
 
 Please contact me if you have an inquiries about projects that do not appear on my github.
 
