@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nick Riazi | Embedded Systems & Firmware</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #09090c;
+        --surface: #111217;
+        --surface-alt: #181b22;
+        --text: #f6f7fb;
+        --muted: #9ca3af;
+        --accent: #35c7ff;
+        --accent-soft: rgba(53, 199, 255, 0.18);
+        --border: rgba(255, 255, 255, 0.08);
+        --radius: 24px;
+        --max-width: 1100px;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(53, 199, 255, 0.08),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at calc(100% - 20vw) 10vh,
+            rgba(81, 255, 168, 0.05),
+            transparent 24%
+          ),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        animation: fadeIn 0.9s ease-out both;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page {
+        width: min(100%, calc(100% - 2rem));
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 0 4rem;
+      }
+
+      header,
+      section {
+        margin-bottom: 3.5rem;
+      }
+
+      .hero {
+        padding: 2.4rem 2.4rem 3rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
+
+      .title {
+        margin: 0 0 1rem;
+        font-size: clamp(2.7rem, 4vw, 4rem);
+        letter-spacing: -0.04em;
+        line-height: 1.02;
+      }
+
+      .subtitle {
+        max-width: 760px;
+        margin: 0 0 1.8rem;
+        font-size: 1.03rem;
+        color: var(--muted);
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-top: 0.8rem;
+      }
+
+      .link-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.9rem 1.15rem;
+        border-radius: 999px;
+        background: rgba(53, 199, 255, 0.1);
+        color: var(--text);
+        text-decoration: none;
+        border: 1px solid rgba(53, 199, 255, 0.18);
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .link-pill:hover {
+        transform: translateY(-1px);
+        background: rgba(53, 199, 255, 0.16);
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin-bottom: 1.6rem;
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+      }
+
+      .grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 1.5rem;
+        padding: 1.8rem;
+        position: relative;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          transparent 50%
+        );
+      }
+
+      .card-title {
+        margin: 0 0 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      .card-text,
+      .skill-list,
+      .project-description,
+      .contact-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+      }
+
+      .skill-list li {
+        display: inline;
+      }
+
+      .skill-tag {
+        display: inline-flex;
+        padding: 0.55rem 0.85rem;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 999px;
+        font-size: 0.92rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-card {
+        padding: 1.8rem;
+      }
+
+      .project-title {
+        margin: 0 0 0.85rem;
+        font-size: 1.08rem;
+        font-weight: 700;
+      }
+
+      .project-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 0 0 1rem;
+      }
+
+      .project-stack span {
+        font-size: 0.82rem;
+        color: var(--accent);
+        background: rgba(53, 199, 255, 0.07);
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        border: 1px solid rgba(53, 199, 255, 0.12);
+      }
+
+      .project-footer {
+        margin-top: 1.4rem;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.95rem;
+        border: 1px solid rgba(53, 199, 255, 0.18);
+        background: rgba(53, 199, 255, 0.08);
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        transition: background 0.2s ease;
+      }
+
+      .project-link:hover {
+        background: rgba(53, 199, 255, 0.14);
+      }
+
+      footer {
+        padding: 1.95rem 1.8rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .contact-copy {
+        max-width: 640px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        align-items: center;
+      }
+
+      .footer-links a {
+        color: var(--text);
+        text-decoration: none;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        background: rgba(53, 199, 255, 0.08);
+        border: 1px solid rgba(53, 199, 255, 0.14);
+        transition: background 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        background: rgba(53, 199, 255, 0.16);
+      }
+
+      @media (max-width: 860px) {
+        .skills-grid,
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page {
+          padding: 2rem 0 3rem;
+        }
+
+        .hero {
+          padding: 1.8rem 1.6rem 2.4rem;
+        }
+
+        .section-heading {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .card,
+        footer {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1 class="title">Nick Riazi</h1>
+        <p class="subtitle">
+          CS student at UC Irvine focused on embedded systems and firmware.
+        </p>
+        <div class="links">
+          <a class="link-pill" href="resume.pdf" download>Download Resume</a>
+          <a
+            class="link-pill"
+            href="https://github.com/ncriazi"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          <a
+            class="link-pill"
+            href="https://linkedin.com/in/nickriazi"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+          <a class="link-pill" href="mailto:ncriazi@gmail.com">Email</a>
+        </div>
+      </header>
+
+      <section>
+        <div class="section-heading">Skills</div>
+        <div class="grid skills-grid">
+          <article class="card">
+            <h2 class="card-title">Embedded & Systems</h2>
+            <p class="card-text">
+              Hands-on experience with firmware, low-level communication, Linux,
+              and embedded hardware platforms.
+            </p>
+            <ul class="skill-list">
+              <li><span class="skill-tag">C/C++</span></li>
+              <li><span class="skill-tag">Python</span></li>
+              <li><span class="skill-tag">MIPS Assembly</span></li>
+              <li><span class="skill-tag">I2C</span></li>
+              <li><span class="skill-tag">CAN Bus</span></li>
+              <li><span class="skill-tag">SocketCAN</span></li>
+              <li><span class="skill-tag">Linux</span></li>
+              <li><span class="skill-tag">Raspberry Pi</span></li>
+              <li><span class="skill-tag">MPU-6050</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h2 class="card-title">Tools</h2>
+            <p class="card-text">
+              Efficient development workflow leveraging version control,
+              containerization, and automation.
+            </p>
+            <ul class="skill-list">
+              <li><span class="skill-tag">Git</span></li>
+              <li><span class="skill-tag">Docker</span></li>
+              <li><span class="skill-tag">CI/CD</span></li>
+              <li><span class="skill-tag">Jira</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">Projects</div>
+        <div class="grid project-grid">
+          <article class="card project-card">
+            <h3 class="project-title">
+              Vehicle Telemetry System (In Progress)
+            </h3>
+            <div class="project-stack">
+              <span>C++</span>
+              <span>Linux</span>
+              <span>I2C</span>
+              <span>SocketCAN</span>
+              <span>MPU-6050</span>
+              <span>Raspberry Pi</span>
+            </div>
+            <p class="project-description">
+              Embedded vehicle telemetry system implementing an I2C driver from
+              scratch for an MPU-6050 IMU and simulating a two-node CAN bus ECU
+              network using SocketCAN with a watchdog fault-detection layer.
+            </p>
+            <div class="project-footer">
+              <a
+                class="project-link"
+                href="https://github.com/ncriazi/vehicle-telemetry-system"
+                target="_blank"
+                rel="noreferrer"
+                >View repo</a
+              >
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3 class="project-title">Sudoku in MIPS Assembly</h3>
+            <div class="project-stack">
+              <span>MIPS</span>
+              <span>MARS</span>
+            </div>
+            <p class="project-description">
+              Fully functional Sudoku game built in MIPS Assembly using Memory
+              Mapped I/O for low-level bitmap display rendering and strict
+              register conventions.
+            </p>
+            <div class="project-footer">
+              <a
+                class="project-link"
+                href="https://github.com/ncriazi/sudoku-mips"
+                target="_blank"
+                rel="noreferrer"
+                >View repo</a
+              >
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3 class="project-title">LCK Fantasy League App</h3>
+            <div class="project-stack">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+              <span>Socket.io</span>
+            </div>
+            <p class="project-description">
+              Full-stack fantasy esports platform with real-time live scoring
+              via WebSockets, automated data pipeline syncing live match stats,
+              and JWT authentication.
+            </p>
+            <div class="project-footer">
+              <a
+                class="project-link"
+                href="https://github.com/ncriazi/lck-fantasy-league"
+                target="_blank"
+                rel="noreferrer"
+                >View repo</a
+              >
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3 class="project-title">Crack in the Wall</h3>
+            <div class="project-stack">
+              <span>Python</span>
+              <span>Godot</span>
+            </div>
+            <p class="project-description">
+              Led a 10-person team to build a state-machine-driven battle engine
+              managing 500+ unique asset interactions.
+            </p>
+            <div class="project-footer">
+              <a
+                class="project-link"
+                href="https://github.com/ncriazi/crack-in-the-wall"
+                target="_blank"
+                rel="noreferrer"
+                >View repo</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <div class="contact-copy">
+          <p>
+            Feel free to reach out — always open to talking embedded systems,
+            robotics, or just cool projects.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:ncriazi@gmail.com">ncriazi@gmail.com</a>
+          <a href="https://github.com/ncriazi" target="_blank" rel="noreferrer"
+            >GitHub</a
+          >
+          <a
+            href="https://linkedin.com/in/nickriazi"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
