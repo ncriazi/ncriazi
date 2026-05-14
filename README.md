@@ -4,7 +4,7 @@
 
 I have a passion for both computer science and design, and am interested in areas such as firmware and embedded systems! Look through my pinned repositories to see a bit of what I have accomplished so far~!
 
-Please contact me if you have an inquiries about projects that do not appear on my github.
+Personal Website: https://ncriazi.github.io/ncriazi/
 
 #### Find me on [LinkedIn][linkedin] or send me an [email][email].
 [linkedin]: https://www.linkedin.com/in/nick-riazi-b565662b9/
